@@ -42,6 +42,8 @@ export default function App() {
   }, [muted]);
 
   const onAudioButton = async () => {
+    console.log("audio button clicked");
+
     const a = audioRef.current;
     if (!a) return;
 
@@ -93,7 +95,7 @@ export default function App() {
       {/* 🎄 background music (GitHub Pages safe) */}
       <audio
         ref={audioRef}
-        src={assetUrl("audio/chrimahsong.mp4")}
+        src={`${import.meta.env.BASE_URL}audio/chrimahsong.mp4`}
         preload="auto"
         loop
       />
