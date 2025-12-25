@@ -15,8 +15,8 @@ export default function App() {
   const [muted, setMuted] = useState(false);
   const [audioReady, setAudioReady] = useState(false);
 
-  const next = () => setIndex((i) => (i + 1) % 5);
-  const prev = () => setIndex((i) => (i - 1 + 5) % 5);
+  const next = () => setIndex((i) => (i + 1) % 6);
+  const prev = () => setIndex((i) => (i - 1 + 6) % 6);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -28,7 +28,7 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // configure audio (don’t force autoplay, browsers block it)
+  // configure audio
   useEffect(() => {
     const a = audioRef.current;
     if (!a) return;
@@ -39,7 +39,6 @@ export default function App() {
   }, [muted]);
 
   const onTouchStart = (e) => {
-    // don't trigger vertical swipe when interacting with horizontal swipe zones
     if (e.target.closest(".accomp-viewport, .mestory-swipeZone")) return;
     touchStartY.current = e.touches[0].clientY;
   };
@@ -62,22 +61,38 @@ export default function App() {
     const a = audioRef.current;
     if (!a) return;
 
-    // First click must start audio (user gesture)
+    // rewind if ended so play() always works
+    if (a.ended) a.currentTime = 0;
+
+    // first click starts music
     if (!audioReady) {
       try {
+        a.loop = true;
         a.muted = false;
         setMuted(false);
+
         await a.play();
-        setAudioReady(true);
+        setAudioReady(true); // 🎄 enables snow everywhere
       } catch (err) {
         console.log("Audio play blocked:", err);
       }
       return;
     }
 
-    // After started: toggle mute
-    a.muted = !a.muted;
-    setMuted(a.muted);
+    // toggle mute after started
+    const nextMuted = !a.muted;
+    a.muted = nextMuted;
+    setMuted(nextMuted);
+
+    // resume if unmuting and paused/ended
+    if (!nextMuted && a.paused) {
+      try {
+        if (a.ended) a.currentTime = 0;
+        await a.play();
+      } catch (err) {
+        console.log("Audio resume blocked:", err);
+      }
+    }
   };
 
   return (
@@ -93,8 +108,24 @@ export default function App() {
     >
       <Header />
 
-      {/* 🎄 background music (put file at: public/audio/christmas.mp3) */}
-      <audio ref={audioRef} src="/audio/chrimahsong.mp4" />
+      {/* 🎄 background music */}
+      <audio
+        ref={audioRef}
+        src="/audio/chrimahsong.mp4"
+        preload="auto"
+        onEnded={() => {
+          const a = audioRef.current;
+          if (!a) return;
+
+          // force loop unless muted
+          if (!a.muted) {
+            a.currentTime = 0;
+            a.play().catch(() => {
+              setAudioReady(false);
+            });
+          }
+        }}
+      />
 
       {/* Under-header audio button */}
       <button
@@ -109,7 +140,8 @@ export default function App() {
 
       <div className="readability-layer" />
 
-      {index === 0 && (
+      {/* ❄️ Snow falls on ALL slides once music starts */}
+      {audioReady && (
         <Snowfall
           snowflakeCount={100}
           style={{
@@ -135,7 +167,7 @@ export default function App() {
         </motion.div>
       </AnimatePresence>
 
-      <Navigation next={next} prev={prev} index={index} total={5} />
+      <Navigation next={next} prev={prev} index={index} total={6} />
     </div>
   );
 }

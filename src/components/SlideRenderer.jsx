@@ -1,10 +1,9 @@
 import FriendsAndFam from "../slides/FriendsAndFam";
 import IntroSlide from "../slides/IntroSlide";
 import LineageSlide from "../slides/LineageSlide";
-// import StrengthSlide from "../slides/StrengthSlide";
-// import LoveSlide from "../slides/LoveSlide";
 import MeSlide from "../slides/MeSlide";
 import Accomplishments from "../slides/Accomplishments";
+import ExtraCredit from "../slides/ExtraCredit";
 
 export default function SlideRenderer({ index }) {
   switch (index) {
@@ -18,6 +17,8 @@ export default function SlideRenderer({ index }) {
       return <Accomplishments />;
     case 4:
       return <MeSlide />;
+    case 5:
+      return <ExtraCredit />;
     default:
       return <IntroSlide />;
   }
