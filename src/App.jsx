@@ -38,24 +38,24 @@ export default function App() {
     a.muted = muted;
   }, [muted]);
 
-  const onTouchStart = (e) => {
-    if (e.target.closest(".accomp-viewport, .mestory-swipeZone")) return;
-    touchStartY.current = e.touches[0].clientY;
-  };
+  // const onTouchStart = (e) => {
+  //   if (e.target.closest(".accomp-viewport, .mestory-swipeZone")) return;
+  //   touchStartY.current = e.touches[0].clientY;
+  // };
 
-  const onTouchEnd = (e) => {
-    if (e.target.closest(".accomp-viewport, .mestory-swipeZone")) return;
-    if (touchStartY.current == null) return;
+  // const onTouchEnd = (e) => {
+  //   if (e.target.closest(".accomp-viewport, .mestory-swipeZone")) return;
+  //   if (touchStartY.current == null) return;
 
-    const endY = e.changedTouches[0].clientY;
-    const delta = endY - touchStartY.current;
-    const threshold = 50;
+  //   const endY = e.changedTouches[0].clientY;
+  //   const delta = endY - touchStartY.current;
+  //   const threshold = 50;
 
-    if (delta <= -threshold) next();
-    if (delta >= threshold) prev();
+  //   if (delta <= -threshold) next();
+  //   if (delta >= threshold) prev();
 
-    touchStartY.current = null;
-  };
+  //   touchStartY.current = null;
+  // };
 
   const onAudioButton = async () => {
     const a = audioRef.current;
@@ -98,8 +98,8 @@ export default function App() {
   return (
     <div
       className="app"
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
+      // onTouchStart={onTouchStart}
+      // onTouchEnd={onTouchEnd}
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
