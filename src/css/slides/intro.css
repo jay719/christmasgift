@@ -1,0 +1,46 @@
+.intro-image-stack {
+  position: relative;
+  width: min(92vw, 360px);
+  margin: 0 auto;
+}
+
+/* Mom image */
+.intro-mom {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Crown image */
+.intro-crown {
+  position: absolute;
+  left: 43%;
+
+  /* 👑 FINAL resting spot (tweak this only) */
+  top: 25px;
+
+  width: 120px;
+  z-index: 2;
+
+  transform: translate(-50%, -70px);
+  opacity: 0;
+
+  animation: crownDrop 0.9s cubic-bezier(0.2, 0.9, 0.25, 1) forwards;
+  animation-delay: 0.35s;
+}
+
+/* Crown fall animation */
+@keyframes crownDrop {
+  0% {
+    transform: translate(-50%, -70px);
+    opacity: 0;
+  }
+  85% {
+    transform: translate(-50%, 4px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

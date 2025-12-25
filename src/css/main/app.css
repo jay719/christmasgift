@@ -1,0 +1,95 @@
+/* ---------- Header ---------- */
+.app-header {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  font-size: 18px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+
+  z-index: 30;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* ---------- Navigation ---------- */
+.nav {
+  position: fixed;
+  /* right: calc(14px + env(safe-area-inset-right)); */
+  bottom: calc(14px + env(safe-area-inset-bottom));
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+  z-index: 20;
+}
+
+.nav-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: none;
+
+  font-size: 40px;
+  cursor: pointer;
+
+  background: red;
+  color: white;
+}
+
+.nav-btn:active {
+  transform: scale(0.98);
+}
+
+.nav-dots {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  background: green;
+  color: white;
+  opacity: 0.9;
+  text-align: center;
+}
+
+[aria-label="Slide"] {
+  /* color: red;s */
+  color: rgba(32, 252, 4, 0.1);
+}
+
+.audio-toggle {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 54px); /* under header */
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  border: none;
+  border-radius: 999px;
+
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+
+  color: white;
+  z-index: 25;
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  canvas {
+    display: none;
+  }
+}

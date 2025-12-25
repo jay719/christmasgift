@@ -1,0 +1,152 @@
+/* ============================= */
+/* Friends & Family flip slide   */
+/* Scoped to slide--friends      */
+/* ============================= */
+
+.slide--friends .faf-wrap {
+  width: min(92vw, 740px);
+  margin: 0 auto;
+}
+
+.faf-subtitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.faf-text {
+  margin: 10px auto 14px;
+  width: min(92vw, 620px);
+  font-size: clamp(16px, 4.2vw, 20px);
+  line-height: 1.55;
+}
+
+.faf-footer-hint {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Flip card ---------- */
+.faf-flip {
+  width: min(92vw, 720px);
+  margin: 0 auto;
+  perspective: 1200px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faf-flip-inner {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+.faf-flip.is-flipped .faf-flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* Each face */
+.faf-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  border-radius: 18px;
+  padding: 14px;
+
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faf-front {
+  position: relative;
+}
+
+.faf-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+/* Top row with hint */
+.faf-face-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faf-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.faf-hint-icon {
+  display: inline-block;
+  font-size: 14px;
+}
+
+/* ---------- Grids ---------- */
+.faf-grid {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+}
+
+/* Family: room for 6–8 images */
+.faf-grid--family {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Friends: your 4 grid */
+.faf-grid--friends {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Images */
+.faf-img {
+  width: 100%;
+  height: 18vh;
+  max-height: 170px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Mobile tuning */
+@media (max-width: 520px) {
+  .faf-img {
+    height: 16vh;
+    max-height: 150px;
+  }
+
+  .faf-grid--family {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .faf-flip-inner {
+    transition: none;
+  }
+}

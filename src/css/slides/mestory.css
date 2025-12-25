@@ -1,0 +1,103 @@
+.slide--mestory .mestory-wrap {
+  width: min(92vw, 720px);
+  margin: 0 auto;
+}
+
+.mestory-swipeZone {
+  width: 100%;
+  margin: 10px auto 0;
+}
+
+/* HERO */
+.mestory-heroWrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.mestory-hero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  max-height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+.mestory-lead {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: left;
+}
+
+/* COLLAGE */
+/* COLLAGE */
+.mestory-collageWrap {
+  margin-top: 14px;
+}
+
+.mestory-collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 👈 bigger thumbnails */
+  gap: 10px; /* 👈 more breathing room */
+  width: 100%;
+}
+
+.mestory-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+
+/* dots */
+.mestory-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mestory-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  padding: 0;
+}
+
+.mestory-dot.is-active {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.1);
+}
+
+.mestory-hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* smaller phones */
+@media (max-width: 520px) {
+  .mestory-hero {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 380px) {
+  .slide--mestory .mestory-wrap {
+    width: min(94vw, 640px);
+  }
+  .mestory-collage {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 380px) {
+  .mestory-collage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
