@@ -1,15 +1,15 @@
 export default function ExtraCredit() {
   const photos = [
-    "/images/others/domandmomfam.jpg",
-    "/images/others/jamieandmom.jpg",
-    "/images/others/meandjerm.jpg",
-    "/images/others/meandzuzu.jpg",
-    "/images/others/momandomkids.jpg",
-    "/images/others/momandtianaandtaliyah.jpg",
-    "/images/others/momandzuzu.jpg",
-    "/images/others/rip.jpg",
-    "/images/others/tamir.jpg",
-    "/images/others/zuzu.jpg",
+    "images/others/domandmomfam.jpg",
+    "images/others/jamieandmom.jpg",
+    "images/others/meandjerm.jpg",
+    "images/others/meandzuzu.jpg",
+    "images/others/momandomkids.jpg",
+    "images/others/momandtianaandtaliyah.jpg",
+    "images/others/momandzuzu.jpg",
+    "images/others/rip.jpg",
+    "images/others/tamir.jpg",
+    "images/others/zuzu.jpg",
   ];
 
   return (

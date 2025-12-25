@@ -40,43 +40,43 @@ export default function FriendsAndFam() {
                 {/* 6–8 images, swap as you like */}
                 <img
                   className="faf-img"
-                  src="/images/fam/greatgrandpayoung.jpg"
+                  src="images/fam/greatgrandpayoung.jpg"
                   alt="Family"
                   loading="lazy"
                 />
                 <img
                   className="faf-img"
-                  src="/images/mom/momandbro.jpg"
+                  src="images/mom/momandbro.jpg"
                   alt="Family"
                   loading="lazy"
                 />
                 <img
                   className="faf-img"
-                  src="/images/fam/momandbrea.jpg"
+                  src="images/fam/momandbrea.jpg"
                   alt="Family"
                   loading="lazy"
                 />
                 <img
                   className="faf-img"
-                  src="/images/fam/brandiandmom.jpg"
+                  src="images/fam/brandiandmom.jpg"
                   alt="Family"
                   loading="lazy"
                 />
                 <img
                   className="faf-img"
-                  src="/images/mom/therandmom.jpg"
+                  src="images/mom/therandmom.jpg"
                   alt="Family"
                   loading="lazy"
                 />
                 <img
                   className="faf-img"
-                  src="/images/fam/erybody.jpg"
+                  src="images/fam/erybody.jpg"
                   alt="Family"
                   loading="lazy"
                 />
                 {/* Optional extras */}
-                {/* <img className="faf-img" src="/images/mom/portrait.png" alt="Family" loading="lazy" /> */}
-                {/* <img className="faf-img" src="/images/mom/portrait.png" alt="Family" loading="lazy" /> */}
+                {/* <img className="faf-img" src="images/mom/portrait.png" alt="Family" loading="lazy" /> */}
+                {/* <img className="faf-img" src="images/mom/portrait.png" alt="Family" loading="lazy" /> */}
               </div>
             </div>
 
@@ -97,25 +97,25 @@ export default function FriendsAndFam() {
 
               <div className="faf-grid faf-grid--friends">
                 <img
-                  src="/images/friends/momandshanni.jpg"
+                  src="images/friends/momandshanni.jpg"
                   alt="Mom and Shanni"
                   className="faf-img"
                   loading="lazy"
                 />
                 <img
-                  src="/images/friends/momandfriends.jpg"
+                  src="images/friends/momandfriends.jpg"
                   alt="Mom with friends"
                   className="faf-img"
                   loading="lazy"
                 />
                 <img
-                  src="/images/friends/momandfriend.jpg"
+                  src="images/friends/momandfriend.jpg"
                   alt="Mom with a friend"
                   className="faf-img"
                   loading="lazy"
                 />
                 <img
-                  src="/images/mom/momandom.jpg"
+                  src="images/mom/momandom.jpg"
                   alt="Mom with friends"
                   className="faf-img"
                   loading="lazy"

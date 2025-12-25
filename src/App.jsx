@@ -8,12 +8,15 @@ import SlideRenderer from "./components/SlideRenderer";
 
 export default function App() {
   const [index, setIndex] = useState(0);
-  const touchStartY = useRef(null);
 
   // 🎄 audio
   const audioRef = useRef(null);
   const [muted, setMuted] = useState(false);
   const [audioReady, setAudioReady] = useState(false);
+
+  // ✅ GitHub Pages-safe asset URL helper (works in dev + prod)
+  const assetUrl = (path) =>
+    `${import.meta.env.BASE_URL}${String(path).replace(/^\/+/, "")}`;
 
   const next = () => setIndex((i) => (i + 1) % 6);
   const prev = () => setIndex((i) => (i - 1 + 6) % 6);
@@ -38,25 +41,6 @@ export default function App() {
     a.muted = muted;
   }, [muted]);
 
-  // const onTouchStart = (e) => {
-  //   if (e.target.closest(".accomp-viewport, .mestory-swipeZone")) return;
-  //   touchStartY.current = e.touches[0].clientY;
-  // };
-
-  // const onTouchEnd = (e) => {
-  //   if (e.target.closest(".accomp-viewport, .mestory-swipeZone")) return;
-  //   if (touchStartY.current == null) return;
-
-  //   const endY = e.changedTouches[0].clientY;
-  //   const delta = endY - touchStartY.current;
-  //   const threshold = 50;
-
-  //   if (delta <= -threshold) next();
-  //   if (delta >= threshold) prev();
-
-  //   touchStartY.current = null;
-  // };
-
   const onAudioButton = async () => {
     const a = audioRef.current;
     if (!a) return;
@@ -72,7 +56,7 @@ export default function App() {
         setMuted(false);
 
         await a.play();
-        setAudioReady(true); // 🎄 enables snow everywhere
+        setAudioReady(true); // ❄️ enables snow everywhere
       } catch (err) {
         console.log("Audio play blocked:", err);
       }
@@ -98,8 +82,6 @@ export default function App() {
   return (
     <div
       className="app"
-      // onTouchStart={onTouchStart}
-      // onTouchEnd={onTouchEnd}
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -108,23 +90,12 @@ export default function App() {
     >
       <Header />
 
-      {/* 🎄 background music */}
+      {/* 🎄 background music (GitHub Pages safe) */}
       <audio
         ref={audioRef}
-        src="/audio/chrimahsong.mp4"
+        src={assetUrl("audio/chrimahsong.mp4")}
         preload="auto"
-        onEnded={() => {
-          const a = audioRef.current;
-          if (!a) return;
-
-          // force loop unless muted
-          if (!a.muted) {
-            a.currentTime = 0;
-            a.play().catch(() => {
-              setAudioReady(false);
-            });
-          }
-        }}
+        loop
       />
 
       {/* Under-header audio button */}

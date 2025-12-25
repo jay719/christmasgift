@@ -1,7 +1,7 @@
 export const slides = [
   {
     id: 0,
-    src: "/images/mom/portrait.png",
+    src: "images/mom/portrait.png",
     title: "A Tribute To The Best Mom Ever",
     text: "This is just a small way to say thank you for everything.",
     bg: "#f5efe6",
@@ -10,11 +10,11 @@ export const slides = [
     id: 1,
     title: "How did we get here?",
     from: {
-      src: "/images/fam/granp.jpg",
+      src: "images/fam/granp.jpg",
       label: "Nana & Grandpa",
     },
     to: {
-      src: "/images/mom/baby.png",
+      src: "images/mom/baby.png",
       label: "You",
     },
     note: "Luckily Nana and those who shall not be named met and made you!",

@@ -8,14 +8,14 @@ export default function IntroSlide() {
           {/* Crown */}
           <img
             className="intro-crown"
-            src="/images/misc/crown.png"
+            src="images/misc/crown.png"
             alt="Crown"
           />
 
           {/* Mom */}
           <img
             className="intro-mom"
-            src="/images/mom/momchristmasportrait.jpg"
+            src="images/mom/momchristmasportrait.jpg"
             alt="Mom portrait"
           />
         </div>

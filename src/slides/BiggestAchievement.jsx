@@ -13,7 +13,7 @@ export default function BiggestAchievement() {
           <div className="ach-card">
             <img
               className="ach-img"
-              src="/images/kids/me.jpg"
+              src="images/kids/me.jpg"
               alt="Me"
               loading="lazy"
             />
@@ -25,7 +25,7 @@ export default function BiggestAchievement() {
           <div className="ach-card">
             <img
               className="ach-img"
-              src="/images/kids/devin.jpg"
+              src="images/kids/devin.jpg"
               alt="Devin"
               loading="lazy"
             />

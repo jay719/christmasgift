@@ -15,7 +15,7 @@ export default function LineageSlide() {
         <div className="lineage-card">
           <img
             className="lineage-img"
-            src="/images/fam/granp.jpg"
+            src="images/fam/granp.jpg"
             alt="Grandparents"
           />
           <div className="caption">Nana & Grandpa</div>
@@ -27,22 +27,22 @@ export default function LineageSlide() {
           <div className="lin-images-row">
             <img
               className="lineage-img"
-              src="/images/mom/mombaby.jpg"
+              src="images/mom/mombaby.jpg"
               alt="Mom as a baby"
             />
             <img
               className="lineage-img"
-              src="/images/mom/momteen.jpg"
+              src="images/mom/momteen.jpg"
               alt="Mom as a teen"
             />
             <img
               className="lineage-img"
-              src="/images/mom/momandnana.jpg"
+              src="images/mom/momandnana.jpg"
               alt="Mom and nana"
             />
             <img
               className="lineage-img"
-              src="/images/mom/momandnanacolloge.jpg"
+              src="images/mom/momandnanacolloge.jpg"
               alt="Mom and nana collage"
             />
           </div>
